@@ -29,13 +29,27 @@
 
 > 1. 可以直接使用String类的replaceAll方法（注意第一个参数是正则，匹配.需要转义）
 > 2. 第二方法可以遍历address每一个char然后判断是否为.在通过StringBuilder拼接即可
->  
->    ```java
->    public String defangIPaddr(String address) {
->                   return address.replaceAll("\\.", "[.]");
->        }
->    ```
->    
+>
+> ```java
+> public String defangIPaddr(String address) {
+>                return address.replaceAll("\\.", "[.]");
+> }
+> ```
+>
+> ```java
+> public static String defangIPaddr(String address) {
+>         StringBuilder stringBuilder=new StringBuilder();
+>         for (int i = 0; i < address.length(); i++) {
+>             if (address.charAt(i)=='.'){
+>                 stringBuilder.append("[.]");
+>             }
+>             else {
+>                 stringBuilder.append(address..charAt(i))
+>             }
+>         }
+>         return stringBuilder.toString();
+>     }
+> ```
 
 ## 执行结果
 
